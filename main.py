@@ -10,7 +10,6 @@ origins = [
     "http://localhost:5173",
     "https://test-1rxpe0vvn-keanus-projects-916bf33d.vercel.app",
     "https://test-6xk0wqjbd-keanus-projects-916bf33d.vercel.app",
-    "*",  # temp
 ]
 
 app.add_middleware(
