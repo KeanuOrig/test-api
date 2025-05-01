@@ -28,7 +28,8 @@ class MessageRequest(BaseModel):
 @app.post("/send-message")
 async def send_message(request: MessageRequest):
     try:
-        response = requests.post(request.webhookUrl, json={"text": request.message})
+        modified_message = f"From Keanu Orig's Slack Bot: {request.message}"
+        response = requests.post(request.webhookUrl, json={"text": modified_message})
 
         if response.status_code == 200:
             return {"status": "success", "message": "Message sent successfully"}
