@@ -1,8 +1,23 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 import requests
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+
+# Allow CORS for local dev and deployed frontend
+origins = [
+    "http://localhost:5173",
+    "https://test-1rxpe0vvn-keanus-projects-916bf33d.vercel.app/",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 class MessageRequest(BaseModel):
