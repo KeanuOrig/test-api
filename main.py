@@ -38,7 +38,7 @@ async def send_message(request: MessageRequest):
         else:
             raise HTTPException(
                 status_code=response.status_code if response.status_code < 500 else 400,
-                detail=f"Error sending message, status code: {response.status_code}",
+                detail=f"Error sending message: {response.text}",
             )
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Exception: {str(e)}")
