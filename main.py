@@ -10,13 +10,14 @@ origins = [
     "http://localhost:5173",
     "https://test-1rxpe0vvn-keanus-projects-916bf33d.vercel.app",
     "https://test-6xk0wqjbd-keanus-projects-916bf33d.vercel.app",
+    "*",  # temp
 ]
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
     allow_credentials=True,
-    allow_methods=["*"],
+    allow_methods=["GET", "POST", "OPTIONS"],
     allow_headers=["*"],
 )
 
